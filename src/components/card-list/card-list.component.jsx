@@ -1,11 +1,16 @@
 import React,{ Component} from 'react';
 
 class CardList extends Component {
-
     render(){
+        const {monsters} =  this.props;
+        
         return(
-            <div>Hello i'm the CardListCmponent</div>
-        )
+            <div>
+                {monsters.map((monster) => (
+                    <h1 key={monster.id}>{monster.name}</h1>
+                ))}
+            </div>            
+        );
     }
 }
 
