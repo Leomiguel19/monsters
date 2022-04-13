@@ -9,12 +9,14 @@ import "./App.css";
 const App = () => {
   const [searchField, setSearchField] = useState(''); 
   const [monsters, setMonsters] = useState([]); 
-  const [filteredmonsters, setFilteredMonsters] = useState(monsters); 
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters); 
 
-  console.log('render');
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString)
+  }
 
   useEffect(() => {
-    console.log('effect fired');
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then((users) => setMonsters(users));    
